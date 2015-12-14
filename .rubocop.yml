@@ -1,6 +1,7 @@
 AllCops:
   RunRailsCops: true
-
+  Exclude:
+    - 'original_file_for_refactor.rb'
 Style/Encoding:
   Enabled: false
 

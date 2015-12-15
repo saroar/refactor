@@ -11,7 +11,7 @@ class Admin::MailingSystemsController < AdminController
   end
 
   def create
-    mailing_refactor
+    mailing_refactor(params)
     if params[:button] == 'reach'
       @mailing_system = MailingSystem.new(permit_params)
       render 'index'
@@ -38,7 +38,7 @@ class Admin::MailingSystemsController < AdminController
     end if emails.present?
   end
 
-  def users
+  def users_refactor
     ::Search::ConsultantsQuery.new.search.with_exact_countries_ids(params[:country_id])
       .with_specializations_ids(params[:migration_approach_id])
   end

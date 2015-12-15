@@ -1,5 +1,5 @@
 class MallingSystem < ActiveRecord::Base
-  def mailing_refactor
+  def mailing_refactor(params)
     @from_user = User.find(params[:mailing_system][:user_id])
     case
     when @from_user.is_admin? || (@from_user.is_consultant? && @from_user.is_client?)
